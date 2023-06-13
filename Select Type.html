@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flight Booking System</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-image: url("bg.png");
+      background-size: cover;
+      background-position: center;
+      font-family: serif, Cambria;
+    }
+    .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(199, 199, 199, 0.5);
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  margin: 0;
+  font-size: 24px;
+  color: #0a0a0a;
+}
+
+.role-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 16px;
+  color: #0a0a0a;
+}
+
+.login-link {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+.main-content {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 40px;
+  text-align: center;
+}
+
+h2 {
+  margin: 0;
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333333;
+}
+
+p {
+  font-size: 18px;
+  color: #555555;
+  margin-bottom: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.button {
+  padding: 12px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #f5f5f5;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+label {
+  font-size: 16px;
+  color: #333333;
+}
+
+input[type="text"],
+input[type="date"],
+select {
+  padding: 8px;
+  font-size: 14px;
+  border: 1px solid #dddddd;
+  border-radius: 4px;
+}
+
+.search-button {
+  margin-top: 10px;
+}
+
+.round-buttons-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 10px;
+}
+
+.round-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 60px;
+  border-radius: 30px;
+  background-color: #ffffff;
+  color: #333333;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.round-button:hover {
+  background-color: #f5f5f5;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(199, 199, 199, 0.5);
+  padding: 20px;
+  text-align: center;
+  color: #ffffff;
+  font-size: 14px;
+}
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: transparent;
+  color: #0a0a0a;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: #0a0a0a;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f5f5f5;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.dropdown:hover .dropbtn {
+  text-decoration: underline;
+}
+</style>
+</head>
+<body>
+  <header>
+    <h1>Flight Booking System</h1>
+    <div class="role-container">
+      <a href="User Login.html" class="login-link">User</a>
+      <a href="Admin Login.html" class="login-link">Admin</a>
+      <div class="dropdown">
+        <button class="dropbtn">Contact</button>
+        <div class="dropdown-content">
+          <a href="#">9876543210</a>
+          <a href="#">abc@gmail.com</a>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="container">
+    <div class="main-content">
+      <h2>Welcome to our Flight Booking System..!</h2>
+        <h2>Search for Flight Availability</h2>
+        <form id="search-form">
+          <div class="form-group">
+            <label for="origin">Origin:</label>
+            <input type="text" id="origin" name="origin" placeholder="Enter origin" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="destination">Destination:</label>
+            <input type="text" id="destination" name="destination" placeholder="Enter destination" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="date">Date of Journey:</label>
+            <input type="date" id="date" name="date" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="travellers">Number of Travellers:</label>
+            <input type="number" id="travellers" name="travellers" min="1" required>
+          </div>
+    
+          <div class="form-group">
+            <label for="trip-type">Trip Type:</label>
+            <select id="trip-type" name="trip-type">
+              <option value="oneway">One-way</option>
+              <option value="roundtrip">Roundtrip</option>
+            </select>
+          </div>
+          <button class="button search-button" type="submit">Search</button>
+        </form>
+      </div>
+      <div class="round-buttons-container">
+        <div class="round-button">Flight</div>
+        <div class="round-button">Hotel</div>
+        <div class="round-button">Bus Ticket</div>
+        <div class="round-button">Local Travel</div>
+        <div class="round-button">Tour Package</div>
+      </div>
+    </div>
+</div>
+<footer>
+  <p>&copy; 2023 Flight Booking System. All rights reserved.</p>
+</footer>
+<script>
+  function viewFlights() {
+    // Add logic to navigate to the "view flights" page
+    console.log("View Flights clicked");
+  }
+
+  function viewFlightPrices() {
+    // Add logic to navigate to the "flight prices" page
+    console.log("Flight Prices clicked");
+  }
+
+  document.getElementById("search-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    // Add logic to handle the search form submission
+    console.log("Search form submitted");
+
+    // Display the alert message
+    alert("Please login to proceed further. The login can be done from the top right corner of this page - User/Admin");
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin - Flight Booking</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('bg.png');
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      color: #333333;
+      font-weight: bold;
+    }
+
+    .admin-profile {
+      display: flex;
+      align-items: center;
+    }
+
+    .admin-profile img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .admin-profile span {
+      font-size: 14px;
+      color: #333333;
+    }
+
+    .add-form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-size: 16px;
+      color: #333333;
+      margin-right: 10px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #dddddd;
+      border-radius: 4px;
+    }
+
+    .button {
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #333333;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #555555;
+    }
+
+    .flight-list {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .flight-list-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .flight-list-item span {
+      font-size: 14px;
+      color: #333333;
+    }
+
+    .flight-list-item .button {
+      padding: 8px 16px;
+      font-size: 12px;
+    }
+    .booking-details {
+      margin-top: 20px;
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .booking-details-heading {
+      font-size: 18px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .booking-details-item {
+      margin-bottom: 5px;
+    }
+
+    .footer {
+      background-color: #333333;
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 14px;
+    }
+
+    .success-modal {
+      display: none;
+      position: fixed;
+      z-index: 2;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0, 0, 0, 0.5);
+    }
+
+    .success-modal-content {
+      background-color: #fff;
+      margin: 15% auto;
+      padding: 20px;
+      border-radius: 5px;
+      width: 50%;
+      text-align: center;
+    }
+
+    .success-modal-close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .success-modal-close:hover,
+    .success-modal-close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">Flight Booking System</div>
+      <a href="Admin Profile.html" class="button">Profile</a>
+    </div>
+
+    <div class="add-form">
+      <h2>Add Flight</h2>
+      <form id="addFlightForm">
+        <div class="form-group">
+          <label for="flightName">Flight Name:</label>
+          <input type="text" id="flightName" name="flightName" required>
+        </div>
+        <div class="form-group">
+          <label for="departureDate">Departure Date:</label>
+          <input type="date" id="departureDate" name="departureDate" required>
+        </div>
+        <div class="form-group">
+          <label for="departureTime">Departure Time:</label>
+          <input type="time" id="departureTime" name="departureTime" required>
+        </div>
+        <div class="form-group">
+          <label for="destination">Destination:</label>
+          <select id="destination" name="destination" required>
+            <option value="">Select Destination</option>
+            <option value="New York">New York</option>
+            <option value="London">London</option>
+            <option value="Paris">Paris</option>
+            <option value="Tokyo">Tokyo</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="price">Price:</label>
+          <input type="number" id="price" name="price" required>
+        </div>
+        <div class="form-group">
+          <button type="submit">Add Flight</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="flight-list">
+      <h2>Flight List</h2>
+      <div id="flightList"></div>
+    </div>
+
+    <div class="booking-details">
+      <h2>Booking Details</h2>
+      <div id="bookingDetails"></div>
+    </div>
+  </div>
+
+  <script>
+    const flights = []; // Array to store flight data
+
+    const addFlightForm = document.querySelector("#addFlightForm");
+    const flightList = document.querySelector("#flightList");
+    const bookingDetails = document.querySelector("#bookingDetails");
+
+    addFlightForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+
+      // Get form values
+      const flightName = document.querySelector("#flightName").value;
+      const departureDate = document.querySelector("#departureDate").value;
+      const departureTime = document.querySelector("#departureTime").value;
+      const destination = document.querySelector("#destination").value;
+      const price = document.querySelector("#price").value;
+
+      // Create flight object
+      const flight = {
+        flightName,
+        departureDate,
+        departureTime,
+        destination,
+        price,
+        bookings: [] // Array to store booking data for this flight
+      };
+
+      // Add flight to the flights array
+      flights.push(flight);
+
+      // Display flight details in the flight list
+      const flightItem = document.createElement("div");
+      flightItem.classList.add("flight-list-item");
+      flightItem.innerHTML = `
+        <span>${flight.flightName} - ${flight.destination}</span>
+        <button class="button" onclick="showBookingDetails(${flights.length - 1})">View Details</button>
+      `;
+      flightList.appendChild(flightItem);
+
+      // Clear form fields
+      addFlightForm.reset();
+    });
+
+    function showBookingDetails(flightIndex) {
+  const flight = flights[flightIndex];
+
+  // Display booking details
+  bookingDetails.innerHTML = `
+    <h3>Booking Details for ${flight.flightName}</h3>
+    <p><b>Flight Name:</b> ${flight.flightName}</p>
+    <p><b>Departure:</b> ${flight.departureDate} ${flight.departureTime}</p>
+    <p><b>Destination:</b> ${flight.destination}</p>
+    <p><b>Price:</b> ${flight.price}</p>
+  `;
+}
+  </script>
+</body>
+</html>

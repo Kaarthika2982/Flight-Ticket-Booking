@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Registration</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+</head>
+<body>
+  
+  <h1>Flight Ticket Booking - Admin Registration</h1>
+  
+
+  <div class="container">
+    <section id="admin-register" class="form-container">
+      <h2>Admin Registration</h2>
+      <form id="admin-register-form" action="#">
+        <div class="form-group">
+          <label for="admin-username">Username:</label>
+          <input type="text" id="admin-username" name="admin-username" placeholder="Enter a username" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="admin-email">Email:</label>
+          <input type="email" id="admin-email" name="admin-email" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="admin-password">Password:</label>
+          <input type="password" id="admin-password" name="admin-password" placeholder="Enter a password" required>
+          <span id="password-strength" class="password-strength"></span>
+          <div id="password-criteria-popup" class="popup hidden">
+            Password must be at least 12 characters long and include uppercase letters, lowercase letters, numbers, and a minimum of 1 symbol among (!@#$%^&*_).
+          </div>
+        </div>
+        
+        <button type="submit" onclick="window.location.href='Admin Booking.html'">Register</button>
+      </form>
+      <p>Already have an account? <a href="Admin Login.html">Login here</a></p>
+    </section>
+  </div>
+</body>
+</html>

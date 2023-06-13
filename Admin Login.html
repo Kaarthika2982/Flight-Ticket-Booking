@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Flight Ticket Booking - Admin Login</h1>
+  </header>
+
+  <div class="container">
+    <section id="admin-login" class="page">
+      <h2>Admin Login</h2>
+      <form action="#">
+        <div class="form-group">
+          <label for="admin-email">Email:</label>
+          <input type="email" id="admin-email" name="admin-email" placeholder="Enter your email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="admin-password">Password:</label>
+          <input type="password" id="admin-password" name="admin-password" placeholder="Enter your password" required>
+        </div>
+        
+        <input type="submit" onClick="myFunction()" value="Login" class="button" />
+          <script>
+            function myFunction() {
+              window.location.href = "Admin Booking.html";
+            }
+          </script>
+      </form>
+      <p>Don't have an account? <a href="Admin Registration.html">Register here</a></p>
+    </section>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User - Flight Booking</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('bg.png');
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+
+    .logo {
+      font-size: 24px;
+      color: #333333;
+      font-weight: bold;
+    }
+
+    .search-form {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      display: flex;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    label {
+      font-size: 16px;
+      color: #333333;
+      margin-right: 10px;
+    }
+
+    input[type="text"],
+    input[type="date"],
+    select {
+      padding: 8px;
+      font-size: 14px;
+      border: 1px solid #dddddd;
+      border-radius: 4px;
+    }
+
+    .button {
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #333333;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #555555;
+    }
+
+    .flight-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    .flight-item {
+      background-color: #ffffff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+    }
+
+    .flight-logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      margin-right: 20px;
+    }
+
+    .flight-details {
+      flex-grow: 1;
+    }
+
+    .flight-details h2 {
+      font-size: 18px;
+      color: #333333;
+      margin-bottom: 10px;
+    }
+
+    .flight-details p {
+      font-size: 14px;
+      color: #555555;
+      margin-bottom: 5px;
+    }
+
+    .flight-symbols {
+      display: flex;
+      align-items: center;
+    }
+
+    .book-button {
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #ffffff;
+      color: #333333;
+      border: 2px solid #333333;
+      margin-right: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .add-button {
+      font-size: 24px;
+      color: #333333;
+      cursor: pointer;
+      transition: color 0.3s ease;
+    }
+
+    .add-button:hover {
+      color: #555555;
+    }
+
+    .footer {
+      background-color: #333333;
+      padding: 20px;
+      text-align: center;
+      color: #ffffff;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="logo">Flight Booking System</div>
+      <a href="User Profile.html" class="button">Profile</a>
+    </div>
+
+    <div class="search-form">
+      <form id="search-form">
+        <div class="form-group">
+          <label for="origin">Origin:</label>
+          <input type="text" id="origin" name="origin" placeholder="Enter origin" required>
+        </div>
+
+        <div class="form-group">
+          <label for="destination">Destination:</label>
+          <input type="text" id="destination" name="destination" placeholder="Enter destination" required>
+        </div>
+
+        <div class="form-group">
+          <label for="date">Date of Journey:</label>
+          <input type="date" id="date" name="date" required>
+        </div>
+
+        <div class="form-group">
+          <label for="return">Return Journey:</label>
+          <input type="date" id="return" name="return">
+        </div>
+
+        <div class="form-group">
+          <label for="travellers">Number of Travellers:</label>
+          <input type="number" id="travellers" name="travellers" min="1" required>
+        </div>
+
+        <div class="form-group">
+          <label for="trip-type">Trip Type:</label>
+          <select id="trip-type" name="trip-type">
+            <option value="oneway">One-way</option>
+            <option value="roundtrip">Roundtrip</option>
+          </select>
+        </div>
+
+        <button class="button" type="submit">Search</button>
+      </form>
+    </div>
+
+    <ul class="flight-list">
+      <!-- Flight items will be dynamically added here -->
+    </ul>
+
+    <div class="footer">
+      &copy; 2023 Flight Booking System. All rights reserved.
+    </div>
+  </div>
+
+  <script>
+    document.getElementById("search-form").addEventListener("submit", function(event) {
+        event.preventDefault();
+        // Add logic to handle the search form submission and display flight results
+        console.log("Search form submitted");
+        displayFlightResults(); // Dummy function to display flight results
+    });
+    function displayFlightResults() {
+      // Dummy flight data for demonstration
+      const flights = [
+        {
+          name: "Flight 1",
+          logo: "logo1.png",
+          departure: {
+            date: "2023-06-15",
+            time: "09:00 AM"
+          },
+          duration: "2h 30m",
+          arrival: {
+            date: "2023-06-15",
+            time: "11:30 AM"
+          },
+          price: "$200"
+        },
+        {
+          name: "Flight 2",
+          logo: "logo2.png",
+          departure: {
+            date: "2023-06-15",
+            time: "12:00 PM"
+          },
+          duration: "3h",
+          arrival: {
+            date: "2023-06-15",
+            time: "03:00 PM"
+          },
+          price: "$250"
+        },
+        {
+          name: "Flight 3",
+          logo: "logo3.png",
+          departure: {
+            date: "2023-06-15",
+            time: "04:00 PM"
+          },
+          duration: "2h",
+          arrival: {
+            date: "2023-06-15",
+            time: "06:00 PM"
+          },
+          price: "$180"
+        }
+      ];
+
+      const flightList = document.querySelector(".flight-list");
+      flightList.innerHTML = "";
+
+      flights.forEach((flight, index) => {
+        const flightItem = document.createElement("li");
+        flightItem.classList.add("flight-item");
+
+        const logoImg = document.createElement("img");
+        logoImg.src = flight.logo;
+        logoImg.alt = flight.name;
+        logoImg.classList.add("flight-logo");
+
+        const flightDetails = document.createElement("div");
+        flightDetails.classList.add("flight-details");
+
+        const flightName = document.createElement("h2");
+        flightName.textContent = flight.name;
+
+        const departureInfo = document.createElement("p");
+        departureInfo.textContent = `Departure: ${flight.departure.date}, ${flight.departure.time}`;
+
+        const durationInfo = document.createElement("p");
+        durationInfo.textContent = `Duration: ${flight.duration}`;
+
+        const arrivalInfo = document.createElement("p");
+        arrivalInfo.textContent = `Arrival: ${flight.arrival.date}, ${flight.arrival.time}`;
+
+        const priceInfo = document.createElement("p");
+        priceInfo.textContent = `Price: ${flight.price}`;
+
+        flightDetails.appendChild(flightName);
+        flightDetails.appendChild(departureInfo);
+        flightDetails.appendChild(durationInfo);
+        flightDetails.appendChild(arrivalInfo);
+        flightDetails.appendChild(priceInfo);
+
+        const flightSymbols = document.createElement("div");
+        flightSymbols.classList.add("flight-symbols");
+
+        const bookButton = document.createElement("button");
+        const bookButtonId = `book-button-${index}`;
+        bookButton.setAttribute("id", bookButtonId);
+        bookButton.classList.add("book-button");
+        bookButton.textContent = "Book";
+
+        const addButton = document.createElement("span");
+        addButton.classList.add("add-button");
+        addButton.innerHTML = "&#43;";
+
+        flightSymbols.appendChild(bookButton);
+        flightSymbols.appendChild(addButton);
+
+        flightItem.appendChild(logoImg);
+        flightItem.appendChild(flightDetails);
+        flightItem.appendChild(flightSymbols);
+
+        flightList.appendChild(flightItem);
+        
+        bookButton.addEventListener("click", function() {
+          redirectToPassengerDetails(bookButtonId);
+        });
+      });
+    }
+
+    // Function to redirect to passenger details page
+    function redirectToPassengerDetails(bookButtonId) {
+      const bookButtonIndex = parseInt(bookButtonId.split("-")[2]);
+      // Perform logic to handle the redirection to passenger details page
+      console.log("Redirecting to passenger details for flight index:", bookButtonIndex);
+    }
+  </script>
+  <script src="passenger-details.js"></script>
+</body>
+</html>

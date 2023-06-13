@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Profile</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+      background-image: url('bg.png');
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #b5e2ff;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .header h1 {
+      color: #003366;
+    }
+
+    .profile-section {
+      background-color: #ffffff;
+      padding: 20px;
+      margin-bottom: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .profile-section h2 {
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .booking-details button {
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #003366;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+      margin-right: 10px; /* Add margin-right for spacing */
+    }
+
+    .booking-details h2 {
+      color: #003366;
+      margin-bottom: 10px;
+    }
+
+    .booking-details button {
+      padding: 8px 16px;
+      font-size: 14px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      background-color: #003366;
+      color: #ffffff;
+      transition: background-color 0.3s ease;
+    }
+
+    .booking-details button:hover {
+      background-color: #0059b3;
+    }
+
+    .booking-details .details {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>User Profile</h1>
+    </div>
+
+    <div class="profile-section">
+      <h2>Personal Details</h2>
+      <div>
+        <strong>User Name:</strong> John Doe<br>
+        <strong>Gender:</strong> Male<br>
+        <strong>Date of Birth:</strong> January 1, 1990<br>
+        <strong>Gmail Connected:</strong> johndoe@gmail.com<br>
+        <strong>Contact Number:</strong> +1 123-456-7890<br>
+        <strong>User Location:</strong> New York, USA<br>
+      </div>
+    </div>
+
+    <div class="booking-details">
+      <h2>Booking Details</h2>
+      <h5>Click on the button to view more details</h5>
+      <button onclick="toggleDetails('current-bookings')">Current Bookings</button>
+      <div id="current-bookings" class="details">
+        <strong>Current Booking 1:</strong> Flight XYZ123<br>
+        <strong>Current Booking 2:</strong> Flight ABC456<br>
+      </div>
+
+      <button onclick="toggleDetails('previous-journeys')">Previous Journeys</button>
+      <div id="previous-journeys" class="details">
+        <strong>Previous Journey 1:</strong> Flight DEF789<br>
+        <strong>Previous Journey 2:</strong> Flight GHI012<br>
+      </div>
+
+      <button onclick="toggleDetails('last-transactions')">Last Transactions</button>
+      <div id="last-transactions" class="details">
+        <strong>Last Transaction 1:</strong> $100, Flight XYZ123<br>
+        <strong>Last Transaction 2:</strong> $150, Flight ABC456<br>
+      </div>
+
+      <button onclick="toggleDetails('failed-transactions')">Failed Transactions</button>
+      <div id="failed-transactions" class="details">
+        <strong>Failed Transaction 1:</strong> Flight MNO345<br>
+        <strong>Failed Transaction 2:</strong> Flight PQR678<br>
+      </div>
+
+      <button onclick="toggleDetails('cancelled-history')">Cancelled History</button>
+      <div id="cancelled-history" class="details">
+        <strong>Cancelled History:</strong> Flight PQR789<br>
+      </div>
+
+      <button onclick="toggleDetails('ticket-refund-details')">Ticket Refund Details</button>
+      <div id="ticket-refund-details" class="details">
+        <strong>Ticket Refund Details:</strong> $200, Flight MNO321<br>
+      </div>
+    </div>
+
+    <div class="logout-button">
+        <button onclick="logout()">Logout</button>
+    </div>
+  </div>
+  
+
+  <script>
+    function toggleDetails(elementId) {
+      var details = document.getElementById(elementId);
+      if (details.style.display === "none") {
+        details.style.display = "block";
+      } else {
+        details.style.display = "none";
+      }
+    }
+    function logout() {
+      window.location.href = "User Login.html";
+    }
+  </script>
+</body>
+</html>
